@@ -112,8 +112,10 @@ function concatenateAbilities(abilities) {
     return abilities[0].ability.name;
 }
 
+const PORT = process.env.PORT || 5000;
+
 async function startListening() {
-    http.listen(8080, function() {
+    http.listen(PORT, function() {
         console.log("Listening on port 8080.");
     });
 }
