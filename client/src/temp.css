@@ -1,0 +1,389 @@
+/* global */
+:root {
+    --obsidian-color: rgb(40, 40, 45);
+    --onyx-color: rgb(36, 36, 36);
+    --blue-color: rgb(27, 42, 71);
+    --royal-blue-color: royalblue;
+
+    --slate-color: rgb(26, 24, 22);
+    --ruby-color: rgb(124, 43, 43);
+    --ground-color: rgb(37, 37, 46);
+    --ruby-highlight-color: rgb(136, 54, 54);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+}
+
+body {
+    background-color: var(--slate-color);
+}
+
+.app {
+    margin: 50px 100px;
+    box-shadow: 0 0 25px black;
+}
+
+/* title bar */
+.titleBar {
+    position: relative;
+    width: 100%;
+    background-color: var(--ruby-color);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    /* box-shadow: 0 0 4px black; */
+    z-index: 2;
+}
+
+.pokedexLogo {
+    font-size: 2rem;
+    font-family: "Montserrat";
+    color: white;
+}
+
+/* dashboard */
+.dashboard {
+    height: calc(100vh - 160px);
+    display: grid;
+    grid-template-columns: 300px auto;
+    position: relative;
+    background: linear-gradient(var(--ground-color), var(--slate-color));
+}
+
+/* pokemon list */
+.pokemonList {
+    background-color: var(--slate-color);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 160px);
+    overflow-y: scroll;
+    /* margin: 25px 25px 25px 25px; */
+}
+
+/* pokemon card */
+.pokemonCard {
+    background-color: var(--ruby-color);
+    display: flex;
+    margin: 1px 0 0 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    font-size: 12px;
+}
+
+.pokemonCard:hover {
+    background-color: var(--ruby-highlight-color);
+}
+
+.cardID {
+    padding: 0 5px 0 5px;
+}
+
+.cardName {
+    padding: 0 5px 0 5px;
+    margin: auto;
+}
+
+.cardName, a {
+    text-decoration: none;
+    color: white;
+}
+
+.cardImg {
+    margin: auto;
+    width: 50px;
+}
+
+.cardSplitTypes {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 4px;
+}
+
+.cardTypeDiv {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid white;
+    font-size: 10px;
+}
+
+/* DETAILED POKEMON */
+
+.detailedContainer {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 50px;
+    /* padding: 50px; */
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* overflow-y: hidden; */
+}
+
+.detailedPokemon {
+    /* background-color: red; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-around;
+    align-items: center;
+    perspective: 2000px;
+}
+
+.generalInfoContainer, .statsContainer {
+    display: grid;
+    grid-gap: 10px;
+    background-color: var(--ruby-color);
+    padding: 20px;
+    width: 350px;
+    margin: auto;
+    transition-duration: 1s;
+    color: white;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.infoTagdiv {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}   
+
+.splitTypesContainer, .splitAbilityContainer {
+    display: flex;
+}
+
+.generalInfoContainer {
+    transform: rotateY(60deg) rotateX(30deg) rotateZ(5deg);
+    box-shadow: -80px 80px 20px rgb(24, 24, 24);
+}
+
+.statsContainer {
+    transform: rotateY(-60deg) rotateX(30deg) rotateZ(-5deg);
+    box-shadow: 80px 80px 20px rgb(24, 24, 24);
+}
+
+.infoTagContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.typediv, .abilitydiv {
+    border: 2px solid var(--ruby-color);
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    margin: 0 0 0 10px;
+    padding: 5px;
+    font-size: 12px;
+    font-family: "Montserrat";
+    font-weight: bold;
+}
+
+.detailedPokemon:hover > .generalInfoContainer, .detailedPokemon:hover > .statsContainer {
+    transform: rotateY(0) rotateX(0);
+    transition-duration: 1s;
+    box-shadow: 0 0 10px black;
+}
+
+.detailedImageContainer {
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.detailedImageContainer > img {
+    display: inline-block;
+    width: 400px;
+    z-index: 1;
+    transition-duration: 1s;
+}
+
+.circle {
+    position: absolute;
+    margin: auto;
+    width: 350px;
+    height: 350px;
+    background-color: var(--ruby-color);
+    box-shadow: 0 10px 10px black;
+    border-radius: 50%;
+}
+
+.detailedImage {
+    filter: drop-shadow(10px 10px 10px black);
+}
+
+.statContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+}
+
+.statTagdiv {
+    font-size: .75rem;
+}
+
+.statdiv {
+    text-align: right;
+}
+
+.progressBarContainer {
+    position: relative;
+    grid-column: span 2;
+    width: 100%;
+    display: grid;
+    border: 1px solid black;
+
+}
+
+.progressBar {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(44, 38, 38, 0.623);
+    margin: auto;
+    position: relative;
+    display: grid;
+    align-items: center;
+    border-radius: 100px;
+}
+
+.hpBar, .attackBar, .defenseBar, .specialAttackBar, .specialDefenseBar, .speedBar {
+    height: 2px;
+    background-color: royalblue;
+    box-shadow: 0 0 5px royalblue;
+}
+
+/* move set */
+
+.movePageContainer {
+    background-color: var(--slate-color);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: white;
+    width: 100%;
+}
+
+.overflowContainer {
+    height: 275px;
+    overflow-y: scroll;
+    bottom: 0;
+}
+
+.moveListTitle {
+    text-align: center;
+    background-color: var(--ruby-color);
+    padding: 10px;
+    bottom: 0;
+}
+
+.moveSetHeader {
+    background-color: var(--ruby-color);
+    font-size: 12px;
+    padding: 2px;
+}
+
+.moveInfo, .moveSetHeader {
+    display: grid;
+    grid-template-columns: 150px 100px 100px 100px 100px 150px 150px auto;
+}
+
+.moveSetHeader *, .moveInfo *{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.moveSetHeader {
+    border-bottom: 1px solid var(--slate-color);
+}
+
+.moveInfo {
+    padding: 5px;
+    font-size: 11px;
+    background-color: var(--ruby-color);
+    margin-bottom: 1px;
+}
+
+.moveInfo:hover {
+    background-color: var(--ruby-highlight-color);
+}
+
+.loadingContainer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+    width: 100%;
+    background-color: none;
+    top: 100px;
+}
+
+.loader {
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+  
+.loadingDot {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+transform: rotate(calc(18deg * var(--i)));
+}
+  
+.loadingDot::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: cyan;
+box-shadow: 0 0 10px royalblue;
+animation: animate 1s linear infinite;
+animation-delay: calc(0.05s * var(--i));
+}
+  
+@keyframes animate {
+    0% {
+        transform: scale(1);
+    }
+
+    80%, 100% {
+        transform: scale(0);
+    }
+}
+
+.loadingMoves {
+    height: 120px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(var(--slate-color), royalblue, var(--slate-color));
+}
