@@ -115,7 +115,7 @@ function concatenateAbilities(abilities) {
 const PORT = process.env.PORT || 5000;
 
 async function startListening() {
-    http.listen(PORT, function() {
+    http.listen(PORT, () => {
         console.log("Listening on port 8080.");
     });
 }
