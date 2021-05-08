@@ -3,7 +3,7 @@ const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 const fetch = require("node-fetch");
 
-let MAXIMUM_POKEMON = 700;
+let MAXIMUM_POKEMON = 151;
 let all = fetchAllPokemon();
 
 io.on("connect", async function(socket) {
